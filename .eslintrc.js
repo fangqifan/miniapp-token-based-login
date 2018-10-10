@@ -13,5 +13,8 @@ module.exports = {
         "no-throw-literal": "off",
         'no-console': 'off',
     },
-    "extends": "eslint:recommended"
+    "extends": "eslint:recommended",
+    "globals": {
+        "wx": false
+    }
 };

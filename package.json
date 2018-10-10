@@ -1,5 +1,5 @@
 {
-  "name": "miniapp-login-module",
+  "name": "miniapp-token-based-login",
   "version": "0.1.0",
   "description": "login module for wechat miniapp.",
   "main": "dist/index.js",
@@ -25,12 +25,12 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git@github.com:fangqifan/miniapp-request-middleware.git"
+    "url": "git@github.com:fangqifan/miniapp-token-based-login.git"
   },
   "bugs": {
-    "url": "https://github.com/fangqifan/miniapp-request-middleware/issues"
+    "url": "https://github.com/fangqifan/miniapp-token-based-login/issues"
   },
-  "homepage": "https://github.com/fangqifan/miniapp-request-middleware",
+  "homepage": "https://github.com/fangqifan/miniapp-token-based-login",
   "devDependencies": {
     "babel-eslint": "^8.2.6",
     "babel-plugin-external-helpers": "^6.22.0",

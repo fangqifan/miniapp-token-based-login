@@ -3,7 +3,7 @@ import extend from 'just-extend';
 
 const defaultOptions = {
     loginTokenStorageName: 'login-token',
-    thirdPartyLoginRequest: async (code) => {
+    thirdPartyLoginRequest: async function() {
         return await Promise.resolve('');
     }
 };
@@ -29,8 +29,9 @@ export class LoginModule {
 
     async login() {
         if (this.status.status === LoginStatusEnum.LoggingIn) {
+            let self=this;
             await new Promise((resolve) => {
-                let token = currentLoginStatus.subscribeStatusChanged((oldStatus) => {
+                let token = self.status.subscribeStatusChanged((oldStatus) => {
                     if (oldStatus == LoginStatusEnum.LoggingIn) {
                         token.unSubscribe();
                         resolve();
@@ -53,13 +54,13 @@ export class LoginModule {
             // 发起第三方登录
             let newLoginToken = this[privateNames.options].thirdPartyLoginRequest(code);
             if (!newLoginToken) {
-                currentLoginStatus.changeStatus(LoginStatusEnum.NotLoggedIn);
+                this.status.changeStatus(LoginStatusEnum.NotLoggedIn);
                 return;
             }
             // 接收并存储第三方登录态
             wx.setStorageSync(this[privateNames.options].loginTokenStorageName, newLoginToken);
 
-            currentLoginStatus.changeStatus(LoginStatusEnum.LoggedIn);
+            this.status.changeStatus(LoginStatusEnum.LoggedIn);
         }
         catch (e) {
             this.status.changeStatus(LoginStatusEnum.NotLoggedIn);
