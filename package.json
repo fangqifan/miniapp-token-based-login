@@ -1,6 +1,6 @@
 {
   "name": "miniapp-token-based-login",
-  "version": "0.1.0",
+  "version": "0.1.4",
   "description": "login module for wechat miniapp.",
   "main": "dist/index.js",
   "scripts": {
@@ -23,6 +23,7 @@
   ],
   "author": "fangqifan",
   "license": "MIT",
+  "miniprogram": "dist",
   "repository": {
     "type": "git",
     "url": "git@github.com:fangqifan/miniapp-token-based-login.git"

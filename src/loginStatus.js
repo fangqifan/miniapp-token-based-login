@@ -23,9 +23,10 @@ export class LoginStatus {
 
     subscribeStatusChanged(callback) {
         this[LoginStatusPrivate.callbacks].push(callback);
+        const self=this;
         return {
             unSubscribe() {
-                remove(this[LoginStatusPrivate.callbacks], callback);
+                remove(self[LoginStatusPrivate.callbacks], [callback]);
             }
         }
     }

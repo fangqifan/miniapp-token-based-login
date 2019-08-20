@@ -52,7 +52,7 @@ export class LoginModule {
                 });
             });
             // 发起第三方登录
-            let newLoginToken = this[privateNames.options].thirdPartyLoginRequest(code);
+            let newLoginToken = await this[privateNames.options].thirdPartyLoginRequest(code);
             if (!newLoginToken) {
                 this.status.changeStatus(LoginStatusEnum.NotLoggedIn);
                 return;
